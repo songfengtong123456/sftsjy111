@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宋丰彤 - 个人简历</title>
+    <style>
+        :root {
+            --color-primary: #6366f1;
+            --color-primary-light: #818cf8;
+            --color-primary-dark: #4f46e5;
+            --color-accent: #f59e0b;
+            --color-bg: #f1f5f9;
+            --color-surface: #ffffff;
+            --color-surface-hover: #f8fafc;
+            --color-card: #ffffff;
+            --color-card-border: #e2e8f0;
+            --color-text: #1e293b;
+            --color-text-secondary: #64748b;
+            --color-text-muted: #94a3b8;
+            --color-nav-bg: rgba(255, 255, 255, 0.82);
+            --color-nav-border: rgba(226, 232, 240, 0.7);
+            --color-shadow: rgba(0, 0, 0, 0.06);
+            --color-shadow-lg: rgba(0, 0, 0, 0.1);
+            --color-tag-bg: #eef2ff;
+            --color-tag-text: #4f46e5;
+            --color-divider: #e2e8f0;
+            --color-progress-bg: #e2e8f0;
+            --color-progress-fill: #6366f1;
+            --color-hero-gradient-start: #6366f1;
+            --color-hero-gradient-end: #8b5cf6;
+            --color-bg-texture: rgba(99, 102, 241, 0.015);
+            --nav-backdrop: blur(16px) saturate(180%);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-full: 9999px;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
+            --transition-fast: 160ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 240ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+            --max-width: 1100px;
+            --nav-height: 60px;
+        }
+
+        body.dark {
+            --color-bg: #0f172a;
+            --color-surface: #1e293b;
+            --color-surface-hover: #273449;
+            --color-card: #1e293b;
+            --color-card-border: #334155;
+            --color-text: #e2e8f0;
+            --color-text-secondary: #cbd5e1;
+            --color-text-muted: #94a3b8;
+            --color-nav-bg: rgba(15, 23, 42, 0.85);
+            --color-nav-border: rgba(51, 65, 85, 0.7);
+            --color-shadow: rgba(0, 0, 0, 0.25);
+            --color-shadow-lg: rgba(0, 0, 0, 0.4);
+            --color-tag-bg: #1e2940;
+            --color-tag-text: #a5b4fc;
+            --color-divider: #334155;
+            --color-progress-bg: #334155;
+            --color-progress-fill: #818cf8;
+            --color-hero-gradient-start: #4f46e5;
+            --color-hero-gradient-end: #7c3aed;
+            --color-bg-texture: rgba(129, 140, 248, 0.025);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body:not(.light) {
+                --color-bg: #0f172a;
+                --color-surface: #1e293b;
+                --color-surface-hover: #273449;
+                --color-card: #1e293b;
+                --color-card-border: #334155;
+                --color-text: #e2e8f0;
+                --color-text-secondary: #cbd5e1;
+                --color-text-muted: #94a3b8;
+                --color-nav-bg: rgba(15, 23, 42, 0.85);
+                --color-nav-border: rgba(51, 65, 85, 0.7);
+                --color-shadow: rgba(0, 0, 0, 0.25);
+                --color-shadow-lg: rgba(0, 0, 0, 0.4);
+                --color-tag-bg: #1e2940;
+                --color-tag-text: #a5b4fc;
+                --color-divider: #334155;
+                --color-progress-bg: #334155;
+                --color-progress-fill: #818cf8;
+                --color-hero-gradient-start: #4f46e5;
+                --color-hero-gradient-end: #7c3aed;
+                --color-bg-texture: rgba(129, 140, 248, 0.025);
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--nav-height) + 20px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(ellipse at 15% 10%, var(--color-bg-texture) 0%, transparent 60%),
+                radial-gradient(ellipse at 85% 90%, var(--color-bg-texture) 0%, transparent 55%),
+                radial-gradient(ellipse at 50% 50%, transparent 70%, var(--color-bg-texture) 100%);
+            background-attachment: fixed;
+        }
+
+        /* 导航栏 */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--nav-height);
+            background: var(--color-nav-bg);
+            backdrop-filter: var(--nav-backdrop);
+            -webkit-backdrop-filter: var(--nav-backdrop);
+            border-bottom: 1px solid var(--color-nav-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+        }
+        .nav.scrolled {
+            box-shadow: 0 4px 24px var(--color-shadow);
+        }
+        .nav-inner {
+            width: 100%;
+            max-width: var(--max-width);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            gap: 12px;
+        }
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--color-primary);
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            list-style: none;
+        }
+        .nav-links a {
+            display: inline-block;
+            padding: 7px 13px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+            letter-spacing: 0.01em;
+        }
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: var(--color-primary);
+            background: var(--color-tag-bg);
+            outline: none;
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+        .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--color-card-border);
+            background: var(--color-surface);
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-size: 1rem;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .btn-icon:hover {
+            background: var(--color-surface-hover);
+            color: var(--color-primary);
+            border-color: var(--color-primary-light);
+            box-shadow: 0 2px 10px var(--color-shadow);
+        }
+        .btn-icon:active {
+            transform: scale(0.94);
+        }
+        .btn-icon svg {
+            width: 18px;
+            height: 18px;
+            pointer-events: none;
+        }
+        .btn-print {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--color-card-border);
+            background: var(--color-surface);
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+            letter-spacing: 0.01em;
+        }
+        .btn-print:hover {
+            background: var(--color-surface-hover);
+            color: var(--color-primary);
+            border-color: var(--color-primary-light);
+            box-shadow: 0 2px 10px var(--color-shadow);
+        }
+        .btn-print svg {
+            width: 16px;
+            height: 16px;
+            pointer-events: none;
+        }
+
+        @media (max-width: 720px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-inner {
+                padding: 0 14px;
+            }
+            .btn-print span {
+                display: none;
+            }
+            .btn-print {
+                padding: 8px 12px;
+            }
+        }
+
+        /* 主体 */
+        .main {
+            padding-top: calc(var(--nav-height) + 28px);
+            padding-bottom: 60px;
+        }
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 14px;
+            }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--color-text);
+            letter-spacing: 0.02em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 24px;
+            background: var(--color-primary);
+            border-radius: var(--radius-full);
+            flex-shrink: 0;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 50px 20px 44px;
+            position: relative;
+        }
+        .hero-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-hero-gradient-start), var(--color-hero-gradient-end));
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.04em;
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.35);
+            user-select: none;
+            transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+        }
+        .hero-avatar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 50px rgba(99, 102, 241, 0.45);
+        }
+        .hero-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 0.03em;
+            color: var(--color-text);
+            margin-bottom: 6px;
+        }
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 18px;
+            letter-spacing: 0.02em;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 6px 14px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            border-radius: var(--radius-full);
+            background: var(--color-tag-bg);
+            color: var(--color-tag-text);
+            letter-spacing: 0.02em;
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+        }
+        .tag:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 12px var(--color-shadow);
+        }
+        .hero-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--color-card-border);
+            background: var(--color-surface);
+            color: var(--color-text);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+        .btn-contact:hover {
+            background: var(--color-surface-hover);
+            border-color: var(--color-primary-light);
+            color: var(--color-primary);
+            box-shadow: 0 4px 16px var(--color-shadow);
+        }
+        .btn-contact svg {
+            width: 16px;
+            height: 16px;
+            pointer-events: none;
+        }
+        .btn-contact.primary {
+            background: var(--color-primary);
+            color: #fff;
+            border-color: var(--color-primary);
+        }
+        .btn-contact.primary:hover {
+            background: var(--color-primary-dark);
+            border-color: var(--color-primary-dark);
+            color: #fff;
+            box-shadow: 0 6px 22px rgba(99, 102, 241, 0.4);
+        }
+
+        .copy-toast {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--color-text);
+            color: var(--color-bg);
+            padding: 10px 22px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 500;
+            z-index: 2000;
+            pointer-events: none;
+            opacity: 0;
+            transition: all var(--transition-normal);
+            letter-spacing: 0.02em;
+            box-shadow: 0 8px 30px var(--color-shadow-lg);
+        }
+        .copy-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* 亮点 */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+        .highlight-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-lg);
+            padding: 22px 20px;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+        .highlight-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 36px var(--color-shadow-lg);
+            border-color: var(--color-primary-light);
+        }
+        .highlight-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            letter-spacing: 0.02em;
+            margin-bottom: 4px;
+        }
+        .highlight-label {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            letter-spacing: 0.02em;
+        }
+
+        /* 标签页 */
+        .tabs-container {
+            background: var(--color-card);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        .tabs-nav {
+            display: flex;
+            border-bottom: 1px solid var(--color-divider);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .tabs-nav::-webkit-scrollbar {
+            display: none;
+        }
+        .tab-btn {
+            flex-shrink: 0;
+            padding: 13px 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: none;
+            background: transparent;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            letter-spacing: 0.02em;
+            position: relative;
+            white-space: nowrap;
+            font-family: var(--font-sans);
+        }
+        .tab-btn.active {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            height: 3px;
+            background: var(--color-primary);
+            border-radius: 3px 3px 0 0;
+        }
+        .tab-panel {
+            display: none;
+            padding: 22px 20px;
+            animation: fadeSlideIn 280ms ease;
+        }
+        .tab-panel.active {
+            display: block;
+        }
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .card {
+            background: var(--color-card);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-md);
+            padding: 20px 22px;
+            transition: all var(--transition-normal);
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px var(--color-shadow);
+        }
+        .card-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .card-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--color-text);
+        }
+        .card-subtitle {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+        }
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-left: auto;
+            white-space: nowrap;
+        }
+        .card-body {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        .card-body ul {
+            list-style: none;
+            padding: 0;
+        }
+        .card-body li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 6px;
+        }
+        .card-body li::before {
+            content: '•';
+            position: absolute;
+            left: 2px;
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* 技能 */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+        .skill-category {
+            background: var(--color-card);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            transition: all var(--transition-normal);
+        }
+        .skill-category h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+        .skill-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        .skill-name {
+            flex: 0 0 80px;
+            font-size: 0.82rem;
+            color: var(--color-text-secondary);
+            white-space: nowrap;
+        }
+        .skill-bar {
+            flex: 1;
+            height: 7px;
+            background: var(--color-progress-bg);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+        .skill-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+            border-radius: var(--radius-full);
+            transition: width 500ms ease;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .skill-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            border-radius: var(--radius-full);
+            background: var(--color-tag-bg);
+            color: var(--color-tag-text);
+        }
+
+        /* 证书网格 */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 16px;
+        }
+        .cert-item {
+            background: var(--color-card);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-md);
+            padding: 12px;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cert-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 32px var(--color-shadow-lg);
+            border-color: var(--color-primary-light);
+        }
+        .cert-item img {
+            width: 100%;
+            height: 140px;
+            object-fit: contain;
+            border-radius: var(--radius-sm);
+            background: #fafafa;
+            transition: transform var(--transition-normal);
+        }
+        body.dark .cert-item img {
+            background: #2d3748;
+        }
+        .cert-item:hover img {
+            transform: scale(1.03);
+        }
+        .cert-item .img-error-placeholder {
+            width: 100%;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-progress-bg);
+            border-radius: var(--radius-sm);
+            color: var(--color-text-muted);
+            font-size: 0.75rem;
+            gap: 8px;
+            letter-spacing: 0.02em;
+        }
+        .cert-item .img-error-placeholder svg {
+            width: 40px;
+            height: 40px;
+            opacity: 0.45;
+            stroke: currentColor;
+        }
+        .cert-caption {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            letter-spacing: 0.02em;
+            word-break: break-word;
+            line-height: 1.3;
+            max-width: 100%;
+        }
+        .cert-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: var(--color-primary);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: var(--radius-full);
+            letter-spacing: 0.04em;
+            pointer-events: none;
+            opacity: 0;
+            transform: translateY(-4px);
+            transition: all var(--transition-fast);
+        }
+        .cert-item:hover .cert-badge {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 灯箱 */
+        .lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.88);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity var(--transition-normal), visibility var(--transition-normal);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .lightbox-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+        }
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 72vh;
+            object-fit: contain;
+            border-radius: var(--radius-md);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+            background: #fff;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #fff;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background var(--transition-fast);
+            backdrop-filter: blur(10px);
+        }
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.28);
+        }
+        .lightbox-caption {
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            text-align: center;
+            max-width: 80vw;
+        }
+
+        /* 返回顶部 */
+        .back-to-top {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--color-card-border);
+            background: var(--color-surface);
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: all var(--transition-normal);
+            box-shadow: 0 4px 16px var(--color-shadow);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .back-to-top:hover {
+            background: var(--color-primary);
+            color: #fff;
+            border-color: var(--color-primary);
+            box-shadow: 0 8px 26px rgba(99, 102, 241, 0.4);
+            transform: translateY(-3px);
+        }
+        .back-to-top svg {
+            width: 18px;
+            height: 18px;
+            pointer-events: none;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 28px 20px;
+            color: var(--color-text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 0.03em;
+            border-top: 1px solid var(--color-divider);
+            margin-top: 20px;
+        }
+
+        /* 打印样式 */
+        @media print {
+            .nav,
+            .back-to-top,
+            .btn-print,
+            .nav-actions,
+            .copy-toast,
+            .hero-avatar,
+            .lightbox-overlay,
+            .cert-badge {
+                display: none !important;
+            }
+            body {
+                background: #fff !important;
+                color: #1e293b !important;
+                font-size: 12px;
+                line-height: 1.4;
+            }
+            .main {
+                padding-top: 10px !important;
+            }
+            .card,
+            .highlight-card,
+            .skill-category,
+            .tabs-container,
+            .cert-item {
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .tab-panel {
+                display: block !important;
+            }
+            .tabs-nav {
+                display: none !important;
+            }
+            .section {
+                margin-bottom: 18px !important;
+            }
+            .hero {
+                padding: 14px 0 !important;
+            }
+            .hero-name {
+                font-size: 1.4rem !important;
+            }
+            .cert-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 8px;
+            }
+            .cert-item img {
+                height: 100px;
+            }
+            .cert-item .img-error-placeholder {
+                height: 100px;
+                font-size: 0.6rem;
+            }
+            @page {
+                margin: 1.2cm;
+            }
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero-name {
+                font-size: 1.6rem;
+            }
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            .hero-avatar {
+                width: 68px;
+                height: 68px;
+                font-size: 1.8rem;
+            }
+            .highlights-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .highlight-card {
+                padding: 16px 14px;
+            }
+            .highlight-number {
+                font-size: 1.5rem;
+            }
+            .section-title {
+                font-size: 1.15rem;
+            }
+            .card {
+                padding: 14px 16px;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .tab-btn {
+                padding: 10px 14px;
+                font-size: 0.82rem;
+            }
+            .tab-panel {
+                padding: 14px;
+            }
+            .cert-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .cert-item img {
+                height: 120px;
+            }
+            .cert-item .img-error-placeholder {
+                height: 120px;
+            }
+            .back-to-top {
+                bottom: 18px;
+                right: 14px;
+                width: 38px;
+                height: 38px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="nav" id="nav" role="navigation" aria-label="主导航">
+        <div class="nav-inner">
+            <span class="nav-brand">宋丰彤</span>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" data-nav="hero">首页</a></li>
+                <li><a href="#highlights" data-nav="highlights">亮点</a></li>
+                <li><a href="#experience" data-nav="experience">经历</a></li>
+                <li><a href="#projects" data-nav="projects">项目</a></li>
+                <li><a href="#skills" data-nav="skills">技能</a></li>
+                <li><a href="#education" data-nav="education">教育</a></li>
+                <li><a href="#certificates" data-nav="certificates">证书</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-icon" id="btnTheme" aria-label="切换深色/浅色模式" title="切换深色/浅色模式">
+                    <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+                <button class="btn-print" id="btnPrint" aria-label="打印简历">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"/>
+                        <path d="M6 12H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-2"/>
+                        <rect x="6" y="14" width="12" height="8"/>
+                    </svg>
+                    <span>打印</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Toast 提示 -->
+    <div class="copy-toast" id="copyToast" aria-live="polite"></div>
+
+    <!-- 返回顶部 -->
+    <button class="back-to-top" id="backToTop" aria-label="返回顶部" title="返回顶部">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </button>
+
+    <!-- 灯箱 -->
+    <div class="lightbox-overlay" id="lightbox" aria-hidden="true">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose" aria-label="关闭灯箱">✕</button>
+            <img id="lightboxImg" src="" alt="证书预览" />
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- 主体内容 -->
+    <main class="main" id="mainContent"></main>
+
+    <!-- 页脚 -->
+    <footer class="footer" id="footer">
+        <p>&copy; <span id="footerYear"></span> 宋丰彤 · 个人简历 · 更新于 <span id="footerDate"></span></p>
+    </footer>
+
+    <script>
+        (function() {
+            // ==================== 简历数据 ====================
+            const resume = {
+                name: '宋丰彤',
+                phone: '19862581687',
+                wechat: 'wxid_9ig2q6b7a74r22',
+                email: '',
+                summary: '龙岩学院国际经济与贸易专业本科生，具备扎实的经济学理论基础与国际贸易实务知识。善于数据分析与跨文化沟通，致力于在国际贸易、咨询或金融领域持续深耕，追求专业价值的高效交付。',
+                tags: ['国际经济与贸易', '数据分析', '英语能力', '跨文化沟通', '办公软件精通', '逻辑思维'],
+                highlights: [
+                    { number: '【待补】', label: 'GPA排名·专业前列' },
+                    { number: '【待补】', label: '相关实习经历累计时长' },
+                    { number: '【待补】', label: '参与完成的项目案例数' },
+                    { number: '【待补】', label: '可量化成果·持续更新中' },
+                ],
+                experienceTabs: [
+                    {
+                        id: 'work',
+                        label: '工作经历',
+                        items: [
+                            {
+                                title: '【待补】公司',
+                                subtitle: '【待补】职位',
+                                meta: '【起止时间待补】',
+                                points: ['【待补】', '【待补】', '【待补】', '【待补】', '【待补】']
+                            }
+                        ]
+                    },
+                    {
+                        id: 'intern',
+                        label: '实习经历',
+                        items: [
+                            {
+                                title: '【待补】公司',
+                                subtitle: '【待补】实习岗位',
+                                meta: '【起止时间待补】',
+                                points: ['【待补】', '【待补】', '【待补】', '【待补】', '【待补】']
+                            }
+                        ]
+                    },
+                    {
+                        id: 'campus',
+                        label: '校园经历',
+                        items: [
+                            {
+                                title: '龙岩学院',
+                                subtitle: '【待补】校园角色/社团',
+                                meta: '【起止时间待补】',
+                                points: ['【待补】', '【待补】', '【待补】']
+                            }
+                        ]
+                    }
+                ],
+                projectTabs: [
+                    {
+                        id: 'proj1',
+                        label: '【待补】项目',
+                        items: [
+                            {
+                                title: '【待补】项目名称',
+                                subtitle: '【待补】角色',
+                                meta: '【起止时间待补】',
+                                techStack: '【待补】',
+                                points: ['【待补】', '【待补】', '【待补】', '【待补】', '【待补】'],
+                                link: ''
+                            }
+                        ]
+                    }
+                ],
+                skills: [
+                    {
+                        category: '语言能力',
+                        type: 'bar',
+                        items: [
+                            { name: '英语', level: 70, note: 'CET-6【待补】' },
+                            { name: '中文', level: 98, note: '母语' },
+                            { name: '【待补】', level: 40, note: '【待补】' },
+                        ]
+                    },
+                    {
+                        category: '办公与工具',
+                        type: 'tags',
+                        items: ['Excel', 'PowerPoint', 'Word', '【待补】', '【待补】', '【待补】']
+                    },
+                    {
+                        category: '专业技能',
+                        type: 'tags',
+                        items: ['国际贸易实务', '经济学分析', '数据分析', '【待补】', '【待补】']
+                    },
+                    {
+                        category: '证书资质',
+                        type: 'tags',
+                        items: ['【待补】', '【待补】', '【待补】']
+                    }
+                ],
+                education: {
+                    school: '龙岩学院',
+                    major: '国际经济与贸易',
+                    degree: '本科',
+                    period: '【就读时间待补】',
+                    gpa: '【待补】/4.0',
+                    gpaRank: '专业前【待补】%',
+                    courses: '【待补】',
+                    languages: '英语（CET-6【待补】/雅思【待补】），【其他语种待补】'
+                },
+                interests: '【待补】',
+                // ★ 完整证书列表 — 共26份证书，修正了文件名 ★
+                certificates: [
+                    '证书1.png',
+                    '证书2.png',
+                    '人工智能训练师3（初级）.png',
+                    '人工智能训练师4（高级）.png',
+                    '证书5.png',
+                    'Ai大学认证证书6.png',
+                    'Ai大学认证证书7.png',
+                    '证书8.png',
+                    '证书9.png',
+                    '证书10.png',
+                    '证书11.png',
+                    '证书12.png',
+                    '证书13.png',
+                    '证书14.png',
+                    '证书15.png',
+                    '证书16.png',
+                    '证书17.png',
+                    '证书18.png',
+                    'Ai大学认证证书19.png',
+                    'Ai大学认证证书20.png',
+                    '证书21.jpg',
+                    '证书23.jpg',
+                    '证书24.jpg',
+                    '证书25.jpg',
+                    '证书26.jpg',
+                    '证书27.jpg',
+                ]
+            };
+
+            // ==================== DOM 引用 ====================
+            const mainContent = document.getElementById('mainContent');
+            const nav = document.getElementById('nav');
+            const navLinks = document.getElementById('navLinks');
+            const btnTheme = document.getElementById('btnTheme');
+            const iconSun = document.getElementById('iconSun');
+            const iconMoon = document.getElementById('iconMoon');
+            const btnPrint = document.getElementById('btnPrint');
+            const backToTop = document.getElementById('backToTop');
+            const copyToast = document.getElementById('copyToast');
+            const footerYear = document.getElementById('footerYear');
+            const footerDate = document.getElementById('footerDate');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            const lightboxClose = document.getElementById('lightboxClose');
+
+            // ==================== 主题管理 ====================
+            function getTheme() {
+                const saved = localStorage.getItem('resume-theme-v2');
+                if (saved === 'dark') return 'dark';
+                if (saved === 'light') return 'light';
+                return 'auto';
+            }
+
+            function applyTheme(theme) {
+                document.body.classList.remove('dark', 'light');
+                if (theme === 'dark') {
+                    document.body.classList.add('dark');
+                } else if (theme === 'light') {
+                    document.body.classList.add('light');
+                }
+                updateThemeIcon();
+            }
+
+            function updateThemeIcon() {
+                const isDark = document.body.classList.contains('dark') ||
+                    (!document.body.classList.contains('light') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                iconSun.style.display = isDark ? 'none' : 'block';
+                iconMoon.style.display = isDark ? 'block' : 'none';
+            }
+
+            function cycleTheme() {
+                const current = getTheme();
+                let next;
+                if (current === 'auto') next = 'dark';
+                else if (current === 'dark') next = 'light';
+                else next = 'auto';
+                localStorage.setItem('resume-theme-v2', next);
+                applyTheme(next);
+            }
+
+            const savedTheme = getTheme();
+            applyTheme(savedTheme);
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                if (getTheme() === 'auto') applyTheme('auto');
+            });
+            btnTheme.addEventListener('click', cycleTheme);
+
+            // ==================== 滚动处理 ====================
+            function onScroll() {
+                const scrollY = window.scrollY;
+                nav.classList.toggle('scrolled', scrollY > 80);
+                backToTop.classList.toggle('visible', scrollY > 300);
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // ==================== 灯箱 ====================
+            window.openLightbox = function(src, caption) {
+                lightboxImg.src = decodeURIComponent(src);
+                lightboxCaption.textContent = caption || '';
+                lightbox.classList.add('active');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                lightboxClose.focus();
+            };
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                lightbox.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                lightboxImg.src = '';
+            }
+
+            // ==================== 打印 ====================
+            btnPrint.addEventListener('click', () => {
+                window.print();
+            });
+
+            // ==================== Toast ====================
+            let toastTimer;
+
+            function showToast(msg) {
+                clearTimeout(toastTimer);
+                copyToast.textContent = msg;
+                copyToast.classList.add('show');
+                toastTimer = setTimeout(() => {
+                    copyToast.classList.remove('show');
+                }, 1800);
+            }
+
+            // ==================== 复制 ====================
+            window.copyText = function(text, label) {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        showToast('✓ ' + label + ' 已复制');
+                    }).catch(() => {
+                        fallbackCopy(text, label);
+                    });
+                } else {
+                    fallbackCopy(text, label);
+                }
+            };
+
+            function fallbackCopy(text, label) {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                ta.style.left = '-9999px';
+                ta.style.top = '-9999px';
+                document.body.appendChild(ta);
+                ta.focus();
+                ta.select();
+                try {
+                    document.execCommand('copy');
+                    showToast('✓ ' + label + ' 已复制');
+                } catch (e) {
+                    showToast('⚠ 复制失败，请手动复制');
+                }
+                document.body.removeChild(ta);
+            }
+
+            // ==================== 图片加载失败处理 ====================
+            window.handleImgError = function(imgElement, caption) {
+                const parent = imgElement.parentElement;
+                if (!parent || parent.querySelector('.img-error-placeholder')) return;
+                imgElement.style.display = 'none';
+                const placeholder = document.createElement('div');
+                placeholder.className = 'img-error-placeholder';
+                placeholder.innerHTML =
+                    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>📄 ' +
+                    escapeHTML(caption) + '</span><span style="font-size:0.6rem;">(图片暂未显示)</span>';
+                parent.insertBefore(placeholder, imgElement.nextSibling);
+            };
+
+            // ==================== 渲染页面 ====================
+            function renderAll() {
+                let html = '';
+
+                // --- HERO ---
+                html += '<section class="section hero" id="hero">';
+                html += '<div class="hero-avatar" aria-hidden="true">' + resume.name.charAt(0) + '</div>';
+                html += '<h1 class="hero-name">' + escapeHTML(resume.name) + '</h1>';
+                html += '<p class="hero-subtitle">' + escapeHTML(resume.summary) + '</p>';
+                if (resume.tags && resume.tags.length > 0) {
+                    html += '<div class="hero-tags">';
+                    resume.tags.forEach(t => {
+                        html += '<span class="tag">' + escapeHTML(t) + '</span>';
+                    });
+                    html += '</div>';
+                }
+                html += '<div class="hero-contact">';
+                html += '<button class="btn-contact primary" onclick="window.copyText(\'' + resume.phone +
+                    '\',\'电话号码\')" aria-label="复制电话号码">📞 ' + escapeHTML(resume.phone) + '</button>';
+                html += '<button class="btn-contact" onclick="window.copyText(\'' + resume.wechat +
+                    '\',\'微信号\')" aria-label="复制微信号">💬 微信：' + escapeHTML(resume.wechat) + '</button>';
+                if (resume.email && resume.email.trim() && resume.email.trim() !== '【待补】') {
+                    html += '<button class="btn-contact" onclick="window.copyText(\'' + resume.email +
+                        '\',\'邮箱地址\')" aria-label="复制邮箱地址">✉️ ' + escapeHTML(resume.email) + '</button>';
+                }
+                html += '</div>';
+                html += '</section>';
+
+                // --- HIGHLIGHTS ---
+                if (resume.highlights && resume.highlights.length > 0) {
+                    html += '<section class="section" id="highlights">';
+                    html += '<h2 class="section-title">亮点成果</h2>';
+                    html += '<div class="highlights-grid">';
+                    resume.highlights.forEach(h => {
+                        html += '<div class="highlight-card">';
+                        html += '<div class="highlight-number">' + escapeHTML(h.number) + '</div>';
+                        html += '<div class="highlight-label">' + escapeHTML(h.label) + '</div>';
+                        html += '</div>';
+                    });
+                    html += '</div></section>';
+                }
+
+                // --- EXPERIENCE TABS ---
+                if (resume.experienceTabs && resume.experienceTabs.length > 0) {
+                    html += '<section class="section" id="experience">';
+                    html += '<h2 class="section-title">工作 / 实习经历</h2>';
+                    html += '<div class="tabs-container" data-tabs="exp">';
+                    html += '<div class="tabs-nav" role="tablist" aria-label="经历分类">';
+                    resume.experienceTabs.forEach((tab, idx) => {
+                        html += '<button class="tab-btn' + (idx === 0 ? ' active' : '') +
+                            '" role="tab" aria-selected="' + (idx === 0 ? 'true' : 'false') +
+                            '" aria-controls="exp-panel-' + tab.id + '" id="exp-tab-' + tab.id +
+                            '" data-tab="' + tab.id + '" data-tabgroup="exp">' + escapeHTML(tab
+                                .label) + '</button>';
+                    });
+                    html += '</div>';
+                    resume.experienceTabs.forEach((tab, idx) => {
+                        html += '<div class="tab-panel' + (idx === 0 ? ' active' : '') +
+                            '" role="tabpanel" id="exp-panel-' + tab.id + '" aria-labelledby="exp-tab-' +
+                            tab.id + '">';
+                        html += '<div class="card-list">';
+                        if (tab.items && tab.items.length > 0) {
+                            tab.items.forEach(item => {
+                                html += '<div class="card">';
+                                html += '<div class="card-header">';
+                                html += '<span class="card-title">' + escapeHTML(item.title) +
+                                    '</span>';
+                                html += '<span class="card-subtitle">' + escapeHTML(item
+                                    .subtitle) + '</span>';
+                                html += '<span class="card-meta">' + escapeHTML(item.meta) +
+                                    '</span>';
+                                html += '</div>';
+                                html += '<div class="card-body"><ul>';
+                                if (item.points && item.points.length > 0) {
+                                    item.points.forEach(p => {
+                                        html += '<li>' + escapeHTML(p) + '</li>';
+                                    });
+                                }
+                                html += '</ul></div></div>';
+                            });
+                        } else {
+                            html +=
+                                '<div class="card"><div class="card-body" style="color:var(--color-text-muted);">暂无记录</div></div>';
+                        }
+                        html += '</div></div>';
+                    });
+                    html += '</div></section>';
+                }
+
+                // --- PROJECT TABS ---
+                if (resume.projectTabs && resume.projectTabs.length > 0) {
+                    html += '<section class="section" id="projects">';
+                    html += '<h2 class="section-title">项目经历</h2>';
+                    html += '<div class="tabs-container" data-tabs="proj">';
+                    html += '<div class="tabs-nav" role="tablist" aria-label="项目分类">';
+                    resume.projectTabs.forEach((tab, idx) => {
+                        html += '<button class="tab-btn' + (idx === 0 ? ' active' : '') +
+                            '" role="tab" aria-selected="' + (idx === 0 ? 'true' : 'false') +
+                            '" aria-controls="proj-panel-' + tab.id + '" id="proj-tab-' + tab.id +
+                            '" data-tab="' + tab.id + '" data-tabgroup="proj">' + escapeHTML(tab
+                                .label) + '</button>';
+                    });
+                    html += '</div>';
+                    resume.projectTabs.forEach((tab, idx) => {
+                        html += '<div class="tab-panel' + (idx === 0 ? ' active' : '') +
+                            '" role="tabpanel" id="proj-panel-' + tab.id +
+                            '" aria-labelledby="proj-tab-' + tab.id + '">';
+                        html += '<div class="card-list">';
+                        if (tab.items && tab.items.length > 0) {
+                            tab.items.forEach(item => {
+                                html += '<div class="card">';
+                                html += '<div class="card-header">';
+                                html += '<span class="card-title">' + escapeHTML(item.title) +
+                                    '</span>';
+                                html += '<span class="card-subtitle">' + escapeHTML(item
+                                    .subtitle) + '</span>';
+                                html += '<span class="card-meta">' + escapeHTML(item.meta) +
+                                    '</span>';
+                                html += '</div>';
+                                if (item.techStack && item.techStack.trim() && item.techStack
+                                    .trim() !== '【待补】') {
+                                    html +=
+                                        '<p style="font-size:0.82rem;color:var(--color-text-muted);margin-bottom:6px;">技术栈：' +
+                                        escapeHTML(item.techStack) + '</p>';
+                                }
+                                html += '<div class="card-body"><ul>';
+                                if (item.points && item.points.length > 0) {
+                                    item.points.forEach(p => {
+                                        html += '<li>' + escapeHTML(p) + '</li>';
+                                    });
+                                }
+                                html += '</ul></div>';
+                                if (item.link && item.link.trim()) {
+                                    html += '<a href="' + escapeHTML(item.link) +
+                                        '" target="_blank" rel="noopener" style="font-size:0.82rem;color:var(--color-primary);text-decoration:none;">🔗 查看项目</a>';
+                                }
+                                html += '</div>';
+                            });
+                        } else {
+                            html +=
+                                '<div class="card"><div class="card-body" style="color:var(--color-text-muted);">暂无记录</div></div>';
+                        }
+                        html += '</div></div>';
+                    });
+                    html += '</div></section>';
+                }
+
+                // --- SKILLS ---
+                if (resume.skills && resume.skills.length > 0) {
+                    html += '<section class="section" id="skills">';
+                    html += '<h2 class="section-title">技能矩阵</h2>';
+                    html += '<div class="skills-grid">';
+                    resume.skills.forEach(cat => {
+                        html += '<div class="skill-category">';
+                        html += '<h4>' + escapeHTML(cat.category) + '</h4>';
+                        if (cat.type === 'bar' && cat.items) {
+                            cat.items.forEach(skill => {
+                                html += '<div class="skill-row">';
+                                html += '<span class="skill-name">' + escapeHTML(skill
+                                    .name) + '</span>';
+                                html +=
+                                    '<div class="skill-bar"><div class="skill-bar-fill" style="width:' +
+                                    (skill.level || 0) + '%;"></div></div>';
+                                if (skill.note) {
+                                    html +=
+                                        '<span style="font-size:0.72rem;color:var(--color-text-muted);white-space:nowrap;">' +
+                                        escapeHTML(skill.note) + '</span>';
+                                }
+                                html += '</div>';
+                            });
+                        } else if (cat.type === 'tags' && cat.items) {
+                            html += '<div class="skill-tags">';
+                            cat.items.forEach(t => {
+                                html += '<span class="skill-tag">' + escapeHTML(t) +
+                                    '</span>';
+                            });
+                            html += '</div>';
+                        }
+                        html += '</div>';
+                    });
+                    html += '</div></section>';
+                }
+
+                // --- EDUCATION ---
+                if (resume.education && resume.education.school && resume.education.school.trim() !== '【待补】') {
+                    html += '<section class="section" id="education">';
+                    html += '<h2 class="section-title">教育背景</h2>';
+                    html += '<div class="card-list"><div class="card">';
+                    html += '<div class="card-header">';
+                    html += '<span class="card-title">' + escapeHTML(resume.education.school) + '</span>';
+                    html += '<span class="card-subtitle">' + escapeHTML(resume.education.major) + ' · ' +
+                        escapeHTML(resume.education.degree) + '</span>';
+                    html += '<span class="card-meta">' + escapeHTML(resume.education.period) + '</span>';
+                    html += '</div>';
+                    html += '<div class="card-body"><ul>';
+                    if (resume.education.gpa && resume.education.gpa.trim() !== '【待补】') {
+                        html += '<li>GPA：' + escapeHTML(resume.education.gpa) + '（' + escapeHTML(resume.education
+                            .gpaRank) + '）</li>';
+                    } else if (resume.education.gpa) {
+                        html += '<li>GPA：' + escapeHTML(resume.education.gpa) + '</li>';
+                    }
+                    if (resume.education.courses && resume.education.courses.trim() !== '【待补】') {
+                        html += '<li>主修课程：' + escapeHTML(resume.education.courses) + '</li>';
+                    }
+                    if (resume.education.languages && resume.education.languages.trim() !== '【待补】') {
+                        html += '<li>语言能力：' + escapeHTML(resume.education.languages) + '</li>';
+                    }
+                    html += '</ul></div></div></div>';
+                    html += '</section>';
+                }
+
+                // --- ★ 证书展示区 ★ ---
+                if (resume.certificates && resume.certificates.length > 0) {
+                    html += '<section class="section" id="certificates">';
+                    html += '<h2 class="section-title">获奖与证书（共' + resume.certificates.length +
+                        '份）</h2>';
+                    html += '<p style="color:var(--color-text-muted);font-size:0.85rem;margin-bottom:18px;letter-spacing:0.02em;">点击任意证书可放大查看 · 按 <strong>ESC</strong> 键关闭灯箱</p>';
+                    html += '<div class="cert-grid" id="certGrid">';
+                    resume.certificates.forEach((filename, index) => {
+                        const caption = filename.replace(/\.(png|jpg|jpeg|gif|webp)$/i, '');
+                        const encodedFilename = encodeURI(filename);
+                        html += '<div class="cert-item" data-cert-index="' + index +
+                            '" onclick="window.openLightbox(\'' + encodedFilename + '\', \'' +
+                            escapeHTML(caption) + '\')" title="点击查看大图：' + escapeHTML(
+                                caption) + '">';
+                        html += '<span class="cert-badge">点击放大</span>';
+                        html += '<img src="' + encodedFilename + '" alt="' + escapeHTML(
+                            caption) + '" loading="lazy" onerror="window.handleImgError(this, \'' +
+                            escapeHTML(caption) + '\')" />';
+                        html += '<span class="cert-caption">' + escapeHTML(caption) +
+                            '</span>';
+                        html += '</div>';
+                    });
+                    html += '</div></section>';
+                }
+
+                // --- INTERESTS ---
+                if (resume.interests && resume.interests.trim() && resume.interests.trim() !== '【待补】') {
+                    html += '<section class="section" id="interests">';
+                    html += '<h2 class="section-title">兴趣与特质</h2>';
+                    html += '<div class="card-list"><div class="card"><div class="card-body">' + escapeHTML(resume
+                        .interests) + '</div></div></div></section>';
+                }
+
+                mainContent.innerHTML = html;
+                initTabs();
+                onScroll();
+            }
+
+            // ==================== 标签页 ====================
+            function initTabs() {
+                const tabsContainers = document.querySelectorAll('.tabs-container[data-tabs]');
+                tabsContainers.forEach(container => {
+                    const tabGroup = container.getAttribute('data-tabs');
+                    const tabButtons = container.querySelectorAll('.tab-btn[data-tabgroup="' + tabGroup +
+                        '"]');
+                    const tabPanels = container.querySelectorAll('.tab-panel');
+                    tabButtons.forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const targetTabId = this.getAttribute('data-tab');
+                            activateTab(container, tabGroup, targetTabId);
+                        });
+                        btn.addEventListener('keydown', function(e) {
+                            const currentIndex = Array.from(tabButtons).indexOf(this);
+                            let newIndex = currentIndex;
+                            if (e.key === 'ArrowRight') {
+                                e.preventDefault();
+                                newIndex = (currentIndex + 1) % tabButtons.length;
+                            } else if (e.key === 'ArrowLeft') {
+                                e.preventDefault();
+                                newIndex = (currentIndex - 1 + tabButtons.length) %
+                                    tabButtons.length;
+                            } else if (e.key === 'Home') {
+                                e.preventDefault();
+                                newIndex = 0;
+                            } else if (e.key === 'End') {
+                                e.preventDefault();
+                                newIndex = tabButtons.length - 1;
+                            }
+                            if (newIndex !== currentIndex) {
+                                tabButtons[newIndex].focus();
+                                tabButtons[newIndex].click();
+                            }
+                        });
+                    });
+                });
+            }
+
+            function activateTab(container, tabGroup, targetTabId) {
+                const tabButtons = container.querySelectorAll('.tab-btn[data-tabgroup="' + tabGroup + '"]');
+                const tabPanels = container.querySelectorAll('.tab-panel');
+                tabButtons.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                tabPanels.forEach(p => p.classList.remove('active'));
+                const activeBtn = container.querySelector('.tab-btn[data-tab="' + targetTabId +
+                    '"][data-tabgroup="' + tabGroup + '"]');
+                const activePanel = document.getElementById(tabGroup + '-panel-' + targetTabId);
+                if (activeBtn) {
+                    activeBtn.classList.add('active');
+                    activeBtn.setAttribute('aria-selected', 'true');
+                }
+                if (activePanel) {
+                    activePanel.classList.add('active');
+                }
+            }
+
+            // ==================== 工具 ====================
+            function escapeHTML(str) {
+                if (typeof str !== 'string') return String(str);
+                const div = document.createElement('div');
+                div.textContent = str;
+                return div.innerHTML;
+            }
+
+            // ==================== 页脚 ====================
+            footerYear.textContent = new Date().getFullYear();
+            footerDate.textContent = new Date().toISOString().split('T')[0];
+
+            // ==================== 导航平滑滚动 ====================
+            navLinks.addEventListener('click', function(e) {
+                const anchor = e.target.closest('a[data-nav]');
+                if (!anchor) return;
+                e.preventDefault();
+                const targetId = anchor.getAttribute('data-nav');
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+
+            // ==================== 启动 ====================
+            renderAll();
+            console.log('✅ 简历页面已就绪 · 宋丰彤');
+            console.log('   📜 共加载 ' + resume.certificates.length + ' 份证书图片');
+            console.log('   💡 点击右上角图标切换深色/浅色模式');
+            console.log('   🖨 点击打印按钮或使用 Ctrl+P 打印PDF');
+            console.log('   📋 点击联系方式按钮一键复制');
+            console.log('   🖼 证书图片可点击放大查看，按 ESC 关闭');
+            console.log('   📄 若图片未找到，将自动显示占位提示');
+            console.log('   📋 证书文件列表：');
+            resume.certificates.forEach((f, i) => {
+                console.log('      ' + (i + 1) + '. ' + f);
+            });
+        })();
+    </script>
+</body>
+</html>
